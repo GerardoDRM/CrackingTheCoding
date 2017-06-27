@@ -14,5 +14,9 @@ public class Main {
         System.out.println(ac.isUniqueV1("hello"));
         System.out.println(ac.isUniqueV2("smile"));
 
+        // Problem 2
+        System.out.println(ac.checkPermutationV1("hello", "elloh"));
+        System.out.println(ac.checkPermutationV2("hello", "lleho"));
+
     }
 }
