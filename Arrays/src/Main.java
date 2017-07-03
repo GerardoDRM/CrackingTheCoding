@@ -25,6 +25,9 @@ public class Main {
         // Problem 4
         System.out.println(ac.checkPalindromePermutation("Tact Coa"));
 
+        // Problem 5
+        System.out.println(ac.checkStringsOp("pale", "bale"));
+        System.out.println(ac.checkStringOpV2("pales", "pale"));
 
     }
 }

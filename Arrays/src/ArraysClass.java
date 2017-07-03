@@ -132,7 +132,7 @@ class ArraysClass {
         return String.valueOf(urlChar);
     }
 
-
+    // Check if a string can be a permutation from a palindrome
     boolean checkPalindromePermutation(String word) {
         Map<Character, Integer> palindrome = new Hashtable<Character, Integer>();
         word = word.toLowerCase();
@@ -159,8 +159,45 @@ class ArraysClass {
         return palindrome_validation;
     }
 
+    // String operations can be (insert, remove, replace)
+    // This method checks from 2 strings if an op was applied
+    // This method assume that second word comes from first one
+    boolean checkStringsOp(String word1, String word2) {
+        // Check if was just an insert or remove or if there were not changes
+        if(word2.length() == word1.length()-1 || word2.length() == word1.length()+1 || word1.equalsIgnoreCase(word2)) {
+            return true;
+        } // If the action was a replacement then check how many
+        else if(word1.length() == word2.length()) {
+            int changes = 0;
+            for(int i=0; i<word1.length(); i++) {
+                if(word1.charAt(i) != word2.charAt(i))
+                    changes+=1;
+            }
+            return changes <= 1;
+        } else  { // Has more than one changes
+            return false;
+        }
+    }
 
+    // Second Solution for String Ops
+    boolean checkStringOpV2(String word1, String word2) {
+        if(word2.length() == word1.length()-1 || word2.length() == word1.length()+1 || word1.length() == word2.length()) {
+            int changes = 0;
+            int idx = 0;
+            String s1 = word1.length() >= word2.length() ? word1:word2;
+            String s2 = word1.length() < word2.length() ? word1:word2;
+            // Iterate over largest word
+            for(int i=0; i<s1.length(); i++) {
+                if(i >= s2.length())
+                    break;
 
+                if(word1.charAt(i) != word2.charAt(i))
+                    changes+=1;
+            }
+            return changes <= 1;
+        } else {
+            return false;
+        }
 
-
+    }
 }
