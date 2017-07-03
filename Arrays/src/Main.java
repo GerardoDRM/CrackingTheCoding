@@ -18,5 +18,13 @@ public class Main {
         System.out.println(ac.checkPermutationV1("hello", "elloh"));
         System.out.println(ac.checkPermutationV2("hello", "lleho"));
 
+        // Problem 3
+        System.out.println(ac.getURLify("Mr John Smith    ", 13));
+        System.out.println(ac.getURLifyv2("Mr John Smith    ", 13));
+
+        // Problem 4
+        System.out.println(ac.checkPalindromePermutation("Tact Coa"));
+
+
     }
 }
