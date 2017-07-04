@@ -1,3 +1,5 @@
+import jdk.internal.util.xml.impl.Pair;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -183,7 +185,6 @@ class ArraysClass {
     boolean checkStringOpV2(String word1, String word2) {
         if(word2.length() == word1.length()-1 || word2.length() == word1.length()+1 || word1.length() == word2.length()) {
             int changes = 0;
-            int idx = 0;
             String s1 = word1.length() >= word2.length() ? word1:word2;
             String s2 = word1.length() < word2.length() ? word1:word2;
             // Iterate over largest word
@@ -200,4 +201,167 @@ class ArraysClass {
         }
 
     }
+
+
+    // String compression
+    String compressString(String word) {
+        char current_c = ' ';
+        // Compress string into a StringBuilder
+        StringBuilder sentence = new StringBuilder();
+        int counter = 0;
+        for(int i=0; i< word.length(); i++) {
+            char c = word.charAt(i);
+            if(c != current_c && counter == 0) {
+                current_c = c;
+                counter=1;
+            }
+            else if (c != current_c && counter > 0){
+                sentence.append(current_c);
+                sentence.append(counter);
+                current_c = c;
+                counter = 1;
+            }
+            else {
+                counter+=1;
+            }
+
+            if (i == word.length()-1) {
+                sentence.append(current_c);
+                sentence.append(counter);
+            }
+        }
+
+        return word.length() < sentence.length() ? word:sentence.toString();
+    }
+
+
+    // Rotate Matrix
+    int [][] rotateMatrix(int[][] matrix) {
+
+        // Rotate matrix
+        for(int i=0; i < matrix.length / 2; i++) {
+            int []x = matrix[i];
+            matrix[i] = matrix[matrix.length-1-i];
+            matrix[matrix.length-1-i] = x;
+        }
+
+
+        // Matrix transpose
+        for(int i=0; i< matrix.length; i++) {
+            for(int j=i; j<matrix[0].length; j++) {
+                int x = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = x;
+            }
+        }
+
+        return matrix;
+    }
+
+    // Rotate Matrix with not math
+    int [][] rotateMatrixV2(int[][] matrix) {
+
+        // Rotate Matrix
+        int cols = matrix[0].length-1;
+        int rows = matrix.length-1;
+        int [][] new_matrix = new int[matrix.length][matrix[0].length];
+
+        for(int i=0; i<= rows; i++) {
+            for(int j=0; j<= cols; j++) {
+                int top = matrix[j][i];
+                new_matrix[i][rows-j] = top;
+            }
+        }
+
+//        for(int i=0; i<= rows/2; i++) {
+//            for(int j=i; j<= cols; j++) {
+//                // Get top, right,
+//                int top = matrix[j][i];
+//                int right = matrix[i][rows-j];
+//                int bottom = matrix[cols - i][rows - j];
+//                int left = matrix[cols][j];
+//
+//                System.out.println("ROUND " + i);
+//
+//                System.out.println("COORDENATE-->" + j + ' ' +i);
+//
+//                System.out.println(top + " " + right + " " + bottom + " " + left);
+//
+//                matrix[j][i] = left;
+//                matrix[i][rows-j] = top;
+//                System.out.println("CHECK ->" + right +" " + matrix[cols - i][rows - j]);
+//                matrix[cols - i][rows - j] = right;
+//                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
+//                matrix[cols][j] = bottom;
+//                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
+//
+//                System.out.println(matrix[j][i] + " " + matrix[i][rows-j] + " " + matrix[cols - i][rows - j] + " " +  matrix[cols][j]);
+//
+//
+//            }
+//            break;
+//        }
+
+        return new_matrix;
+    }
+
+    // Rotate Matrix with no extra data matrix
+    int [][] rotateMatrixV3(int[][] matrix) {
+
+        // Rotate Matrix
+        int cols = matrix[0].length-1;
+        int rows = matrix.length-1;
+
+        for(int i=0; i<= rows/2; i++) {
+            for(int j=i; j<= cols; j++) {
+                // Get top, right,
+                int top = matrix[j][i];
+                int right = matrix[i][rows-j];
+                int bottom = matrix[cols - i][rows - j];
+                int left = matrix[cols][j];
+
+                System.out.println("ROUND " + i);
+
+                System.out.println("COORDENATE-->" + j + ' ' +i);
+
+                System.out.println(top + " " + right + " " + bottom + " " + left);
+
+                matrix[j][i] = left;
+                matrix[i][rows-j] = top;
+                System.out.println("CHECK ->" + right +" " + matrix[cols - i][rows - j]);
+                matrix[cols - i][rows - j] = right;
+                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
+                matrix[cols][j] = bottom;
+                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
+
+                System.out.println(matrix[j][i] + " " + matrix[i][rows-j] + " " + matrix[cols - i][rows - j] + " " +  matrix[cols][j]);
+
+
+            }
+        }
+
+        return matrix;
+    }
+
+
+    // String rotation
+    boolean checkRotation(String w1, String w2) {
+        String new_s2 = w2 + w2;
+        int idx = 0;
+        int counter = 0;
+        for(int i=0; i<new_s2.length(); i++) {
+            if (w1.charAt(idx) == new_s2.charAt(i)) {
+                counter+=1;
+                idx+=1;
+            } else{
+                counter = 0;
+                idx = 0;
+            }
+            if(counter == w1.length())
+                return true;
+        }
+
+        return false;
+    }
+
 }
