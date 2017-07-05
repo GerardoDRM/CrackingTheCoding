@@ -1,4 +1,4 @@
-import java.util.*;
+import LinkedList.NodeTesting;
 
 /**
  * Created by gerardo on 26/06/17.
@@ -8,9 +8,9 @@ public class Main {
     public static void main(String args[]) {
 
         /**
-         * Problem 1 ArraysClass
+         * Problem 1 Arrays.ArraysClass
          */
-        ArraysClass ac = new ArraysClass();
+        ArraysSolutions.ArraysClass ac = new ArraysSolutions.ArraysClass();
         System.out.println(ac.isUniqueV1("hello"));
         System.out.println(ac.isUniqueV2("smile"));
 
@@ -36,15 +36,13 @@ public class Main {
         int [][] matrix = {{0,0,1},
                            {1,0,1},
                            {1,1,1}};
-//        int [][] matrix1 = ac.rotateMatrix(matrix);
-//        for(int i=0; i< matrix1.length; i++) {
-//            for(int j=0; j< matrix1[0].length; j++) {
-//                System.out.print(matrix1[i][j]);
-//            }
-//            System.out.println("");
-//        }
-
-        System.out.println("");
+        int [][] matrix1 = ac.rotateMatrix(matrix);
+        for(int i=0; i< matrix1.length; i++) {
+            for(int j=0; j< matrix1[0].length; j++) {
+                System.out.print(matrix1[i][j]);
+            }
+            System.out.println("");
+        }
 
         int [][] matrix2 = ac.rotateMatrixV2(matrix);
         for(int i=0; i< matrix2.length; i++) {
@@ -58,5 +56,9 @@ public class Main {
         // Problem 9
         System.out.println(ac.checkRotation("waterbottle", "erbottlewat"));
 
+
+        // Problem 2.1
+        NodeTesting linked = new NodeTesting();
+        linked.basicOps();
     }
 }

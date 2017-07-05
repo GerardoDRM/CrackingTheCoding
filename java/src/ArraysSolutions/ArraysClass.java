@@ -1,4 +1,4 @@
-import jdk.internal.util.xml.impl.Pair;
+package ArraysSolutions;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import java.util.Map;
 /**
  * Created by gerardo on 26/06/17.
  */
-class ArraysClass {
+public class ArraysClass {
 
     // Using another data structure
-    boolean isUniqueV1(String word) {
+    public boolean isUniqueV1(String word) {
         Map<Character, Integer> words_hash = new HashMap<>();
         for(int w=0; w<word.length(); w++) {
             if (!words_hash.containsKey(word.charAt(w))) {
@@ -24,7 +24,7 @@ class ArraysClass {
     }
 
 
-    boolean isUniqueV2(String word) {
+    public boolean isUniqueV2(String word) {
         char[] word_values = word.toCharArray();
         // This should change with own implementation
         Arrays.sort(word_values);
@@ -37,7 +37,7 @@ class ArraysClass {
     }
 
     // Check permutation with simple solution
-    boolean checkPermutationV1(String a, String b) {
+    public boolean checkPermutationV1(String a, String b) {
         if (a.length() != b.length()) {
             return false;
         }
@@ -51,7 +51,7 @@ class ArraysClass {
     }
 
     // Check with Hash table
-    boolean checkPermutationV2(String a, String b) {
+    public boolean checkPermutationV2(String a, String b) {
         if (a.length() != b.length()) {
             return false;
         }
@@ -88,7 +88,7 @@ class ArraysClass {
     }
 
     // URLify with loop
-    String getURLify(String url, int size) {
+    public String getURLify(String url, int size) {
         char [] urlChars = url.toCharArray();
         char [] urlCorrect = new char [urlChars.length];
         int j=0;
@@ -108,7 +108,7 @@ class ArraysClass {
 
 
     // URLify second version
-    String getURLifyv2(String url, int size) {
+    public String getURLifyv2(String url, int size) {
         int counter = 0;
         char [] urlChar = url.toCharArray();
         for (int j =0; j<size; j++) {
@@ -135,7 +135,7 @@ class ArraysClass {
     }
 
     // Check if a string can be a permutation from a palindrome
-    boolean checkPalindromePermutation(String word) {
+    public boolean checkPalindromePermutation(String word) {
         Map<Character, Integer> palindrome = new Hashtable<Character, Integer>();
         word = word.toLowerCase();
         for(char w : word.toCharArray()) {
@@ -164,7 +164,7 @@ class ArraysClass {
     // String operations can be (insert, remove, replace)
     // This method checks from 2 strings if an op was applied
     // This method assume that second word comes from first one
-    boolean checkStringsOp(String word1, String word2) {
+    public boolean checkStringsOp(String word1, String word2) {
         // Check if was just an insert or remove or if there were not changes
         if(word2.length() == word1.length()-1 || word2.length() == word1.length()+1 || word1.equalsIgnoreCase(word2)) {
             return true;
@@ -182,7 +182,7 @@ class ArraysClass {
     }
 
     // Second Solution for String Ops
-    boolean checkStringOpV2(String word1, String word2) {
+    public boolean checkStringOpV2(String word1, String word2) {
         if(word2.length() == word1.length()-1 || word2.length() == word1.length()+1 || word1.length() == word2.length()) {
             int changes = 0;
             String s1 = word1.length() >= word2.length() ? word1:word2;
@@ -204,7 +204,7 @@ class ArraysClass {
 
 
     // String compression
-    String compressString(String word) {
+    public String compressString(String word) {
         char current_c = ' ';
         // Compress string into a StringBuilder
         StringBuilder sentence = new StringBuilder();
@@ -236,7 +236,7 @@ class ArraysClass {
 
 
     // Rotate Matrix
-    int [][] rotateMatrix(int[][] matrix) {
+    public int [][] rotateMatrix(int[][] matrix) {
 
         // Rotate matrix
         for(int i=0; i < matrix.length / 2; i++) {
@@ -259,7 +259,7 @@ class ArraysClass {
     }
 
     // Rotate Matrix with not math
-    int [][] rotateMatrixV2(int[][] matrix) {
+    public int [][] rotateMatrixV2(int[][] matrix) {
 
         // Rotate Matrix
         int cols = matrix[0].length-1;
@@ -306,7 +306,7 @@ class ArraysClass {
     }
 
     // Rotate Matrix with no extra data matrix
-    int [][] rotateMatrixV3(int[][] matrix) {
+    public int [][] rotateMatrixV3(int[][] matrix) {
 
         // Rotate Matrix
         int cols = matrix[0].length-1;
@@ -345,7 +345,7 @@ class ArraysClass {
 
 
     // String rotation
-    boolean checkRotation(String w1, String w2) {
+    public boolean checkRotation(String w1, String w2) {
         String new_s2 = w2 + w2;
         int idx = 0;
         int counter = 0;
