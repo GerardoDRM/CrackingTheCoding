@@ -1,3 +1,4 @@
+import LinkedList.Node;
 import LinkedList.NodeTesting;
 
 /**
@@ -57,8 +58,13 @@ public class Main {
         System.out.println(ac.checkRotation("waterbottle", "erbottlewat"));
 
 
-        // Problem 2.1
+        // Problem 2.0
         NodeTesting linked = new NodeTesting();
         linked.basicOps();
+        // Problem 2.1
+        Node dup = linked.removeDup(linked.createNodes());
+        dup.printList();
+
+        linked.removeDupV2(linked.createNodes());
     }
 }

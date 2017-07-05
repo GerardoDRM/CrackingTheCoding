@@ -49,7 +49,7 @@ public class Node {
         }
     }
 
-    void printList() {
+    public void printList() {
         Node current = this;
         while(current != null) {
             System.out.print(current.value + "->");

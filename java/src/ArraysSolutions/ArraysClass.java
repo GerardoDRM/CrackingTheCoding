@@ -273,35 +273,6 @@ public class ArraysClass {
             }
         }
 
-//        for(int i=0; i<= rows/2; i++) {
-//            for(int j=i; j<= cols; j++) {
-//                // Get top, right,
-//                int top = matrix[j][i];
-//                int right = matrix[i][rows-j];
-//                int bottom = matrix[cols - i][rows - j];
-//                int left = matrix[cols][j];
-//
-//                System.out.println("ROUND " + i);
-//
-//                System.out.println("COORDENATE-->" + j + ' ' +i);
-//
-//                System.out.println(top + " " + right + " " + bottom + " " + left);
-//
-//                matrix[j][i] = left;
-//                matrix[i][rows-j] = top;
-//                System.out.println("CHECK ->" + right +" " + matrix[cols - i][rows - j]);
-//                matrix[cols - i][rows - j] = right;
-//                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
-//                matrix[cols][j] = bottom;
-//                System.out.println("CHECK ->" + matrix[cols - i][rows - j]);
-//
-//                System.out.println(matrix[j][i] + " " + matrix[i][rows-j] + " " + matrix[cols - i][rows - j] + " " +  matrix[cols][j]);
-//
-//
-//            }
-//            break;
-//        }
-
         return new_matrix;
     }
 
