@@ -69,4 +69,33 @@ public class NodeTesting {
             firstPointer = firstPointer.next;
         }
     }
+
+
+    // Problem 2 recursive
+    public int getKthPos(Node head, int k, int depth) {
+        if(head.next != null)
+            depth += getKthPos(head.next, k, depth);
+
+        if(depth == k)
+            System.out.println(head.value);
+        return depth + 1;
+    }
+
+    // Problem 2 iterative
+    public int getKthPosV2(Node head, int k){
+        Node prev = head;
+        Node current = head;
+
+        for(int i=0; i<k; i++) {
+            current = current.next;
+        }
+
+        while(current != null) {
+            prev = prev.next;
+            current = current.next;
+        }
+
+        return prev.value;
+
+    }
 }

@@ -64,7 +64,12 @@ public class Main {
         // Problem 2.1
         Node dup = linked.removeDup(linked.createNodes());
         dup.printList();
-
         linked.removeDupV2(linked.createNodes());
+
+        // Problem 2.2
+        System.out.println("");
+        System.out.println("PROBLEM 2.2");
+        linked.getKthPos(linked.createNodes(), 0, 0);
+        System.out.println(linked.getKthPosV2(linked.createNodes(), 5));
     }
 }
