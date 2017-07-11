@@ -5,7 +5,7 @@ package LinkedList;
  */
 public class Node {
 
-    Node next;
+    public Node next;
     int value;
 
     Node(int val, Node next){

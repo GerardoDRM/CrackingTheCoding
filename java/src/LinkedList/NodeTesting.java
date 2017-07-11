@@ -98,4 +98,54 @@ public class NodeTesting {
         return prev.value;
 
     }
+
+    // Problem 3
+    public Node deleteMiddle(Node node) {
+        Node prev = null;
+        Node current = node;
+        while(current.next != null) {
+            current.value = current.next.value;
+            prev = current;
+            current = current.next;
+        }
+        prev.next = null;
+        return node;
+    }
+
+    // Problem 4
+    public Node linkedPartition(Node head, int partition){
+        Node left = null;
+        Node right = null;
+        Node first_left = null;
+        Node first_right = null;
+
+        while(head != null) {
+            // Compare with partition
+            // If is greater than partition goes to right
+            if(head.value > partition) {
+                if(right == null) {
+                    right = new Node(head.value, null);
+                    first_right = right;
+                } else {
+                    System.out.println(head.value);
+                    right.next = new Node(head.value, null);
+                    right = right.next;
+                }
+            }
+            // If is less than partition goes to left
+            else {
+                if(left == null) {
+                    left = new Node(head.value, null);
+                    first_left = left;
+                } else {
+                    left.next = new Node(head.value, null);
+                    left = left.next;
+                }
+            }
+            head = head.next;
+        }
+        left.next = first_right;
+
+        return first_left;
+    }
 }

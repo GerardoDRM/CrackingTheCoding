@@ -68,8 +68,22 @@ public class Main {
 
         // Problem 2.2
         System.out.println("");
-        System.out.println("PROBLEM 2.2");
         linked.getKthPos(linked.createNodes(), 0, 0);
         System.out.println(linked.getKthPosV2(linked.createNodes(), 5));
+
+        // Problem 2.3
+        System.out.println("");
+        Node headMiddle = linked.createNodes();
+        for(int i=0; i<2; i++)
+            headMiddle = headMiddle.next;
+         Node nodeMiddle = linked.deleteMiddle(headMiddle);
+         nodeMiddle.printList();
+
+         // Problem 2.4
+        System.out.println("");
+        Node nodePartition = linked.linkedPartition(linked.createNodes(), 3);
+        nodePartition.printList();
+
+
     }
 }
