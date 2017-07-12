@@ -2,6 +2,7 @@ package LinkedList;
 
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * Created by gerardo on 4/07/17.
@@ -147,5 +148,53 @@ public class NodeTesting {
         left.next = first_right;
 
         return first_left;
+    }
+
+    public Node linkedSum(Node a, Node b) {
+        Node new_node = null;
+        Node first = null;
+        int sum = 0, quotient = 0, remainder = 0;
+        // Iterate over
+        while(a != null || b != null) {
+            int val_1 = a!= null ? a.value : 0;
+            int val_2 = b!= null ? b.value : 0;
+
+            sum = val_1 + val_2 + quotient;
+            quotient = sum / 10;
+            remainder = sum % 10;
+
+            // Add the result to new node
+            if(new_node == null) {
+                new_node = new Node(remainder, null);
+                first = new_node;
+            } else {
+                new_node.next = new Node(remainder, null);
+                new_node = new_node.next;
+            }
+
+
+            a = a!=null ? a.next : null;
+            b = b!= null ? b.next : null;
+        }
+        return first;
+    }
+
+    public boolean linkedPalindrome(Node node) {
+        Stack<Node> stack = new Stack();
+        Node pointer1 = node;
+        Node pointer2 = node;
+        while(pointer1 != null){
+            stack.push(pointer1);
+            pointer1 = pointer1.next;
+        }
+
+        while(pointer2 != null) {
+            Node n = stack.pop();
+            if (n.value != pointer2.value) {
+                return false;
+            }
+            pointer2 = pointer2.next;
+        }
+        return true;
     }
 }

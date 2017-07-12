@@ -84,6 +84,15 @@ public class Main {
         Node nodePartition = linked.linkedPartition(linked.createNodes(), 3);
         nodePartition.printList();
 
+        // Problem 2.5
+        System.out.println("");
+        Node nodeSum = linked.linkedSum(linked.createNodes(), linked.createNodes());
+        nodeSum.printList();
+
+        // Problem 2.6
+        System.out.println("");
+        System.out.println(linked.linkedPalindrome(linked.createNodes()));
+
 
     }
 }
