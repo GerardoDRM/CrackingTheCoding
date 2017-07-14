@@ -1,6 +1,8 @@
 import LinkedList.Node;
 import LinkedList.NodeTesting;
 
+import java.util.ArrayList;
+
 /**
  * Created by gerardo on 26/06/17.
  */
@@ -93,6 +95,66 @@ public class Main {
         System.out.println("");
         System.out.println(linked.linkedPalindrome(linked.createNodes()));
 
+        // Problem 2.7
+        System.out.println("");
+        ArrayList<Integer> n1s = new ArrayList<>();
+        n1s.add(1);
+        n1s.add(3);
+        ArrayList<Integer> n2s = new ArrayList<>();
+        n2s.add(3);
+        n2s.add(5);
+        n2s.add(8);
+        ArrayList<Integer> n3s = new ArrayList<>();
+        n3s.add(2);
+        n3s.add(9);
+        n3s.add(19);
+        Node l1 = linked.createNodes(n1s);
+        Node l2 = linked.createNodes(n2s);
+        Node l3 = linked.createNodes(n3s);
+
+        // Get Last
+        Node last_l1 = l1;
+        Node last_l2 = l2;
+        while(last_l1.next != null) {
+            last_l1 = last_l1.next;
+        }
+
+        while(last_l2.next != null) {
+            last_l2 = last_l2.next;
+        }
+
+        last_l1.next = l3;
+        last_l2.next = l3;
+
+        Node in = linked.linkedIntersection(l1,l2);
+        in.printList();
+
+
+        // Problem 2.8
+        System.out.println("");
+        ArrayList<Integer> n1c = new ArrayList<>();
+        n1c.add(1);
+        n1c.add(3);
+        n1c.add(1);
+        n1c.add(10);
+        n1c.add(2);
+        n1c.add(8);
+        n1c.add(14);
+        Node nc1 = linked.createNodes(n1c);
+        Node lastNc1 = nc1;
+        Node mid = nc1;
+
+        while(lastNc1.next !=null){
+            lastNc1 = lastNc1.next;
+        }
+
+        for(int i=0; i<2; i++)
+            mid = mid.next;
+
+        // Add  circular reference
+        lastNc1.next = mid;
+        Node resCircular = linked.linkedCircularV2(nc1);
+        System.out.println(resCircular.value);
 
     }
 }

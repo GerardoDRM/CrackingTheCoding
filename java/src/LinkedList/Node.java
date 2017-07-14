@@ -6,7 +6,7 @@ package LinkedList;
 public class Node {
 
     public Node next;
-    int value;
+    public int value;
 
     Node(int val, Node next){
         this.value = val;

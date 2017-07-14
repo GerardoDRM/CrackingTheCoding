@@ -1,8 +1,6 @@
 package LinkedList;
 
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by gerardo on 4/07/17.
@@ -30,9 +28,22 @@ public class NodeTesting {
         n.appendToEnd(new Node(3, null));
         n.appendToEnd(new Node(4, null));
         n.appendToEnd(new Node(4, null));
-        n.appendToEnd(new Node(1, null));
+        n.appendToEnd(new Node(3, null));
+        n.appendToEnd(new Node(2, null));
 
         return n;
+    }
+
+    public Node createNodes(ArrayList<Integer> nodes) {
+        Node newNode = null;
+        for(Integer n : nodes) {
+            if(newNode == null) {
+                newNode = new Node(n, null);
+            } else {
+                newNode.appendToEnd(new Node(n, null));
+            }
+        }
+        return newNode;
     }
 
     // Problem 1 with hashmap
@@ -197,4 +208,94 @@ public class NodeTesting {
         }
         return true;
     }
+
+    public Node linkedIntersection(Node a, Node b) {
+        Node a_l = a;
+        Node b_l = b;
+        int len_a = 0, len_b =0;
+        while (a_l != null) {
+            a_l = a_l.next;
+            len_a+=1;
+        }
+
+        while (b_l != null) {
+            b_l = b_l.next;
+            len_b+=1;
+        }
+
+        // Check if tail of both list are the same
+        if(a_l != b_l)
+            return null;
+
+        // Check longest list
+        int sub = len_a >= len_b ? len_a-len_b : len_b - len_a;
+        Node longest = null, shortest = null;
+        if (len_a >= len_b) {
+            longest = a;
+            shortest = b;
+        } else {
+            longest = b;
+            shortest = a;
+        }
+
+        // Cut off unwanted nodes
+        for(int i=0; i<sub; i++)
+            longest = longest.next;
+
+        while(shortest != null) {
+            if(longest == shortest)
+                return longest;
+            longest = longest.next;
+            shortest = shortest.next;
+        }
+
+        return longest;
+    }
+
+
+    public Node linkedCircularV1(Node n) {
+        HashMap<Node, Integer> map = new HashMap<>();
+
+        while(n != null) {
+            if(map.containsKey(n)) {
+                return n;
+            } else {
+                map.put(n, n.value);
+            }
+            n = n.next;
+        }
+        return null;
+    }
+
+    public Node linkedCircularV2(Node n) {
+        Node f1 = n;
+        Node f2 = n;
+
+        // Check for a collision
+        while(f1 != null && f2 !=null) {
+            f1  = f1.next;
+            f2 = f2.next.next;
+
+            if (f1 == f2) {
+                break;
+            }
+        }
+
+        // Check if is a circular list
+        if (f1 == null || f2 == null)
+            return null;
+
+        // Get first Circular node head
+        f2 = n;
+        while(f1 != f2) {
+            f1 = f1.next;
+            f2 = f2.next;
+        }
+
+        return f1;
+    }
+
+
+
+
 }
