@@ -27,4 +27,28 @@ public class StacksQueuesSolutions {
         min.push(1);
         System.out.println(min.showMin());
     }
+
+    // Problem 3.3
+    public void checkSetOfStacks() {
+        SetOfStacks setOfStacks = new SetOfStacks(2);
+        setOfStacks.push(2);
+        setOfStacks.push(1);
+        setOfStacks.push(3);
+
+        System.out.println(setOfStacks.popAt(1));
+        System.out.println(setOfStacks.popAt(0));
+    }
+
+    // Problem 3.4
+    public void checkQueue(){
+        MyQueue q = new MyQueue();
+        q.add(2);
+        q.add(8);
+        q.add(10);
+        q.add(9);
+
+        System.out.println(q.remove());
+    }
+
+    // Problem 3.6
 }

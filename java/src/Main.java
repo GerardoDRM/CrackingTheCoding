@@ -163,6 +163,10 @@ public class Main {
         sq.createMultiStack();
         // Problem 3.2
         sq.searchMin();
+        // Problem 3.3
+        sq.checkSetOfStacks();
+        // Problem 3.4
+        sq.checkQueue();
 
     }
 }
