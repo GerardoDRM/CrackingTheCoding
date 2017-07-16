@@ -1,5 +1,6 @@
 import LinkedList.Node;
 import LinkedList.NodeTesting;
+import StacksQueues.StacksQueuesSolutions;
 
 import java.util.ArrayList;
 
@@ -155,6 +156,13 @@ public class Main {
         lastNc1.next = mid;
         Node resCircular = linked.linkedCircularV2(nc1);
         System.out.println(resCircular.value);
+
+        // Problem 3.1
+        System.out.println("PROBLEMS STACK AND QUEUES");
+        StacksQueuesSolutions sq = new StacksQueuesSolutions();
+        sq.createMultiStack();
+        // Problem 3.2
+        sq.searchMin();
 
     }
 }
