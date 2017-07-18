@@ -51,4 +51,18 @@ public class StacksQueuesSolutions {
     }
 
     // Problem 3.6
+    public void checkAnimalQueue() {
+        AnimalQueue a = new AnimalQueue();
+        a.add("dog", "Lucas");
+        a.add("dog", "Pipouu");
+        a.add("cat", "Ramon");
+        a.add("cat", "Ramon2");
+
+        a.dequeueDog();
+        a.dequeueAny();
+
+        System.out.println(a.cat.peek().animalName);
+        System.out.println(a.dog.peek().animalName);
+
+    }
 }

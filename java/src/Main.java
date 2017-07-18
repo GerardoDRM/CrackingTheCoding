@@ -167,6 +167,8 @@ public class Main {
         sq.checkSetOfStacks();
         // Problem 3.4
         sq.checkQueue();
+        // Problem 3.6
+        sq.checkAnimalQueue();
 
     }
 }
