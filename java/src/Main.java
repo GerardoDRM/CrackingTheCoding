@@ -1,6 +1,7 @@
 import LinkedList.Node;
 import LinkedList.NodeTesting;
 import StacksQueues.StacksQueuesSolutions;
+import TreesGraphs.TestGraphs;
 
 import java.util.ArrayList;
 
@@ -169,6 +170,15 @@ public class Main {
         sq.checkQueue();
         // Problem 3.6
         sq.checkAnimalQueue();
+
+
+        /////////////////////////////////
+        //// Problems 4 ////////////////
+        ////////////////////////////////
+        System.out.println("");
+        System.out.println("PROBLEMS 4");
+        TestGraphs.testBFS();
+
 
     }
 }
