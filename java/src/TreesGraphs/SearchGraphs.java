@@ -39,4 +39,33 @@ public class SearchGraphs {
         }
     }
 
+
+    // Problem 4.2
+    public static TreeNode minH(int [] array, int start, int end) {
+        int middle = (start + end) / 2;
+        TreeNode n = new TreeNode(array[middle]);
+        n.left = minH(array, start, middle-1);
+        n.right = minH(array, middle+1, end);
+
+        return n;
+    }
+
+
+    // Problem 4.4
+    private static int getHeight(TreeNode node) {
+        if(node == null) return 0;
+        return Math.max(getHeight(node.left), getHeight(node.right)) +1;
+    }
+    public static boolean checkBalanced(TreeNode node) {
+        // GET RIGHT AND LEFT LEAFS
+        int h_left = getHeight(node.left);
+        int h_right = getHeight(node.right);
+
+        if(h_left - h_right >1) {
+            return false;
+        }
+        return true;
+    }
+
+
 }
