@@ -68,4 +68,69 @@ public class SearchGraphs {
     }
 
 
+    // Problem 4.5
+    public boolean checkBST(int min, int max, TreeNode node) {
+        if(node == null) return true;
+        boolean bool_l = true, bool_r = true;
+
+        if(node.val < max && node.val > min) {
+            bool_l = checkBST(min, node.val, node.left);
+            bool_r = checkBST(node.val, max, node.right);
+        }
+        return (bool_l && bool_r);
+    }
+
+    // Problem 4.6
+    public TreeNode getMostLeft(TreeNode node) {
+        if(node == null) return null;
+        while(node.left != null) {
+            node = node.left;
+        }
+
+        return  node;
+    }
+    public TreeNode successorInOrder(TreeNode node) {
+        if(node == null) return null;
+
+        if(node.right != null) {
+            return getMostLeft(node.right);
+        } else {
+            TreeNode current = node;
+            TreeNode parent = current.parent;
+            while(parent != null && parent.left != current) {
+                current = parent;
+                parent = parent.parent;
+            }
+            return parent;
+        }
+    }
+
+    // Problem 4.8
+    public TreeNode ancestorV1(TreeNode root, TreeNode n1, TreeNode n2) {
+        if(root == null) return null;
+        if (root == n1 || root == n2) return root;
+        TreeNode nLeft = ancestorV1(root.left, n1, n2);
+        TreeNode nRight = ancestorV1(root.right, n1, n2);
+
+        if(nLeft != null && nRight != null) return root;
+
+        return nLeft.left != null ? nLeft : nRight;
+
+    }
+
+
+    // Problem 4.8
+    public TreeNode ancestorBST(TreeNode root, TreeNode n1 , TreeNode n2) {
+        if(root == null)return null;
+        if(root.val < n1.val && root.val < n2.val)
+            return ancestorBST(root.right, n1, n2);
+        if(root.val > n1.val && root.val > n2.val)
+            return ancestorBST(root.left, n1, n2);
+
+        return root;
+    }
+
+
+
+
 }
