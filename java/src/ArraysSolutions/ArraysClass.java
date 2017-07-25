@@ -335,4 +335,25 @@ public class ArraysClass {
         return false;
     }
 
+
+    // String Anagram
+    public int removeAnagram(String s1, String s2) {
+        int [] letters = new int[128];
+        char [] s1Char = s1.toCharArray();
+        char [] s2Char = s2.toCharArray();
+
+        for (Character c : s1Char) {
+            letters[c]++;
+        }
+        for (Character c : s2Char) {
+            letters[c]--;
+        }
+
+        int res = 0;
+        for (int letter : letters) {
+            res += Math.abs(letter);
+        }
+        return res;
+    }
+
 }
