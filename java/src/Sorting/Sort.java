@@ -1,7 +1,8 @@
 package Sorting;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * Created by gerardo on 25/07/17.
@@ -79,6 +80,27 @@ public class Sort {
             }
         }
         return left;
+    }
+
+
+    // Amazon Interview
+    public static ArrayList<int[]> anagrams2(String s1, String s2) {
+        char [] s2_c = s2.toCharArray();
+        Arrays.sort(s2_c);
+        ArrayList<int[]> values = new ArrayList<>();
+
+        for(int i=0; i<s1.length() - s2.length() + 1; i++) {
+            String val = s1.substring(i,i+s2.length());
+            char[] val_c = val.toCharArray();
+            Arrays.sort(val_c);
+            if(Arrays.equals(val_c,s2_c)) {
+                int [] d = new int[2];
+                d[0] = i;
+                d[1] = i + s2.length() - 1;
+                values.add(d);
+            }
+        }
+        return values;
     }
 
 

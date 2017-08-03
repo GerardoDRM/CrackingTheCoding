@@ -1,9 +1,10 @@
 import LinkedList.Node;
 import LinkedList.NodeTesting;
+import Sorting.Sort;
 import StacksQueues.StacksQueuesSolutions;
 import TreesGraphs.TestGraphs;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by gerardo on 26/06/17.
@@ -179,6 +180,16 @@ public class Main {
         System.out.println("PROBLEMS 4");
         TestGraphs.testBFS();
 
+
+        //////////////////////////////
+        /////// Problems 5 //////////
+        /////////////////////////////
+        System.out.println("");
+        System.out.println("PROBLEMS 5");
+        ArrayList<int[]> v = Sort.anagrams2("anagram", "granma");
+        for(int[] a : v) {
+            System.out.println(a[0]+ "-" + a[1]);
+        }
 
     }
 }

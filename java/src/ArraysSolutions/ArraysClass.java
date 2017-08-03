@@ -356,4 +356,25 @@ public class ArraysClass {
         return res;
     }
 
+    // Caesar Cipher
+    public String caesarCipher(String s, int k) {
+        StringBuilder sBuilder = new StringBuilder();
+        char [] s_char = s.toCharArray();
+        for(Character c : s_char) {
+            if(Character.isLetter(c)) {
+                int val = (k + c) % 127;
+                if(val > 122 && c>=97 && c<=122) {
+                    val = 96 + k;
+                }
+                if(val > 90 && c>=65 && c<=90)
+                    val = 64 + k;
+                sBuilder.append(Character.toChars(val));
+            } else {
+                sBuilder.append(c);
+            }
+
+        }
+        return sBuilder.toString();
+    }
+
 }

@@ -295,6 +295,23 @@ public class NodeTesting {
         return f1;
     }
 
+    boolean hasCycle(Node head) {
+        Node n1 = head;
+        Node n2 = head;
+
+        while(n1 != null && n2 != null) {
+            n1 = n1.next;
+            n2 = n2.next.next;
+
+            if(n1 == n2)
+                return true;
+        }
+
+        return false;
+    }
+
+
+
 
 
 
