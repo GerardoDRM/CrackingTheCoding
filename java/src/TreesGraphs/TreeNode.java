@@ -12,11 +12,13 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
     public TreeNode parent;
+    public boolean visited;
 
     TreeNode(int value) {
         this.val = value;
         left = null;
         right = null;
         parent = null;
+        visited = false;
     }
 }

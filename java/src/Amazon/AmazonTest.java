@@ -46,4 +46,32 @@ public class AmazonTest {
         verticalSum(pos+1, cols, node.right);
     }
 
+
+    public void treeMaxWidth(TreeNode n) {
+        LinkedList<TreeNode> q = new LinkedList<TreeNode>();
+        int max = 1;
+        n.visited = true;
+        q.add(n);
+
+        while(!q.isEmpty()) {
+            TreeNode n1 = q.poll();
+
+            if(n1.left != null && !n1.left.visited) {
+                n1.left.visited = true;
+                q.add(n1.left);
+            }
+
+            if(n1.right != null && !n1.right.visited) {
+                n1.right.visited = true;
+                q.add(n1.right);
+            }
+
+            if(q.size() > max) {
+                max = q.size();
+            }
+        }
+
+        System.out.println(max);
+    }
+
 }
