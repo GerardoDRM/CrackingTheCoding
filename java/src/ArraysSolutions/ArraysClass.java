@@ -362,7 +362,7 @@ public class ArraysClass {
         char [] s_char = s.toCharArray();
         for(Character c : s_char) {
             if(Character.isLetter(c)) {
-                int val = (k + c) % 127;
+                int val = (k + c);
                 if(val > 122 && c>=97 && c<=122) {
                     val = 96 + k;
                 }

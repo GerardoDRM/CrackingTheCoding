@@ -1,5 +1,7 @@
 package StacksQueues;
 
+import java.util.Stack;
+
 /**
  * Created by gerardo on 16/07/17.
  */
@@ -64,5 +66,32 @@ public class StacksQueuesSolutions {
         System.out.println(a.cat.peek().animalName);
         System.out.println(a.dog.peek().animalName);
 
+    }
+
+    public boolean isBalanced(String s) {
+        Stack<Character> vals= new Stack<Character>();
+        char[] s_char = s.toCharArray();
+        for(Character c : s_char) {
+            switch (c) {
+                case '[':
+                case '{':
+                case '(':
+                    vals.push(c);
+                    break;
+                case ']':
+                    if(vals.isEmpty() || vals.pop() != '[')
+                        return false;
+                    break;
+                case ')':
+                    if( vals.isEmpty() || vals.pop() != '(')
+                    vals.pop();
+                    break;
+                case '}':
+                    if( vals.isEmpty() || vals.pop() != '{')
+                        return false;
+                    break;
+            }
+        }
+        return vals.isEmpty();
     }
 }
