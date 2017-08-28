@@ -74,4 +74,14 @@ public class AmazonTest {
         System.out.println(max);
     }
 
+
+    public void giveALlPermutations(String word) {
+        char [] w = word.toCharArray();
+        for(int i=0; i<w.length; i++) {
+            
+        }
+
+
+    }
+
 }
